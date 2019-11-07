@@ -8,9 +8,9 @@
                         <h4 class="card-title text-center">{{ .Name }}</h4>
                     </div>
                     <div class="card-footer">
-                        <form action="/delete/{{ .Id }}" method="post">
+                        <form action="/delete/{{ .Id }}" method="post" name="form_delete">
                             <input type="hidden" name="_method" value="DELETE">
-                            <input type="submit" value="Delete" class="btn btn-danger btn-block">
+                            <input type="submit" value="Delete" name="btn_delete" class="btn btn-danger btn-block">
                         </form>
                     </div>
                 </div>
