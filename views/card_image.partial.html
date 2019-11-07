@@ -1,0 +1,20 @@
+{{ define "cardImage" }}
+    <div class="row">
+        {{ range .Images }}
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail rounded-circle p-2" src="/uploads/{{ .Url }}" alt="image avatar">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{ .Name }}</h4>
+                    </div>
+                    <div class="card-footer">
+                        <form action="/delete/{{ .Id }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" value="Delete" class="btn btn-danger btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    </div>
+{{ end }}

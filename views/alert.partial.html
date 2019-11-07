@@ -1,0 +1,20 @@
+{{ define "alert" }}
+    <div class='alert alert-{{ index . "type" }} alert-dismissible fade show' role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p><strong>Notification:</strong></p>
+            {{ if kindIs "map" .flash.msg }}
+                <ul>
+                    {{ with $x := index . "flash" }}
+                        {{ range .msg }}
+                            <li>{{ index . 0 }}</li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            {{ else }}
+                <p>{{ .flash.msg }}</p>
+            {{ end }}
+    </div>
+{{ end }}
